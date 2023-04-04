@@ -1,4 +1,5 @@
-import { GlobalStyle } from './styles';
+import { Text } from './components/atoms';
+import { FlexBox, GlobalStyle } from './styles';
 import { useFetch } from './utils/useFetch';
 
 const ingredient = 'fish';
@@ -12,9 +13,12 @@ function App() {
    return (
       <>
          <GlobalStyle />
-         <div className="App">
-            <h1>Spoonacular - Recipe&Food 🥗🍤🍍🥑🍄</h1>
-         </div>
+         <FlexBox>
+            <div className="App">
+               <h1>Spoonacular - Recipe&Food 🥗🍤🍍🥑🍄</h1>
+               <Text weight="bold">Probando Text...</Text>
+            </div>
+         </FlexBox>
       </>
    );
 }
