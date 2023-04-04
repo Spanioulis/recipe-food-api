@@ -1,4 +1,4 @@
-import { Text } from './components/atoms';
+import { Text, Title } from './components/atoms';
 import { FlexBox, GlobalStyle } from './styles';
 import { useFetch } from './utils/useFetch';
 
@@ -15,7 +15,7 @@ function App() {
          <GlobalStyle />
          <FlexBox>
             <div className="App">
-               <h1>Spoonacular - Recipe&Food 🥗🍤🍍🥑🍄</h1>
+               <Title as="h1">Spoonacular - Recipe&Food 🥗🍤🍍🥑🍄</Title>
                <Text weight="bold">Probando Text...</Text>
             </div>
          </FlexBox>
