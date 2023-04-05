@@ -16,7 +16,7 @@ function SubHeader() {
    // };
 
    return (
-      <SubHeaderStyled>
+      <SubHeaderStyled data-testid="subheader">
          <FlexBox direction="row">
             <Input placeholder="Busca..." />
             <Button onClick={() => console.log('Botón clickeado!')}>Buscar</Button>

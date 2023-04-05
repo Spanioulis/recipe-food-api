@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors, dimensions, FlexBox } from '../../styles';
-import { Text, Title } from '../atoms';
+import { Title } from '../atoms';
 // import { MainMenu } from '../molecules';
 
 const HeaderStyled = styled(FlexBox)`
@@ -11,7 +11,7 @@ const HeaderStyled = styled(FlexBox)`
 
 export const Header = () => {
    return (
-      <HeaderStyled>
+      <HeaderStyled data-testid="header">
          <Title as="h1" color={colors.white} weight={700}>
             Spoonacular - Recipe&Food 🥗🍤🍍🥑🍄
          </Title>
