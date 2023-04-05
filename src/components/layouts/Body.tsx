@@ -5,7 +5,7 @@ type BodyProps = {
    children: React.ReactNode;
 };
 
-export const Body = ({ children }: BodyProps) => {
+const Body = ({ children }: BodyProps) => {
    return (
       <FlexBox>
          <Header />
@@ -14,3 +14,5 @@ export const Body = ({ children }: BodyProps) => {
       </FlexBox>
    );
 };
+
+export { Body };

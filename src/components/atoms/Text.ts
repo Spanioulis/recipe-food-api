@@ -7,8 +7,10 @@ type TextProps = HTMLAttributes<HTMLParagraphElement> & {
    weight?: string | number;
 };
 
-export const Text = styled.p<TextProps>`
+const Text = styled.p<TextProps>`
    color: ${({ color }) => color || colors.gray.gray3};
    font-size: ${({ size }) => size || dimensions.font.base};
    font-weight: ${({ weight }) => weight || 'normal'};
 `;
+
+export { Text };

@@ -1,20 +1,7 @@
 import { useEffect, useState } from 'react';
 
-type Recipe = {
-   id: number;
-   image: string;
-   readyInMinutes: number;
-   servings: number;
-   sourceUrl: string;
-   title: string;
-};
-
-interface RecipeData {
-   results: Recipe[];
-}
-
-export const useFetch = (url: string) => {
-   const [data, setData] = useState<RecipeData>({ results: [] });
+const useFetch = <T>(url: string) => {
+   const [data, setData] = useState<T>();
    const [loading, setLoading] = useState(false);
    const [error, setError] = useState(null);
 
@@ -23,8 +10,7 @@ export const useFetch = (url: string) => {
       setError(null);
       fetch(url)
          .then((response) => response.json())
-         .then((d) => {
-            console.log('d:', d);
+         .then((d: T) => {
             setData(d);
             setLoading(false);
          })
@@ -36,3 +22,5 @@ export const useFetch = (url: string) => {
 
    return { data, error, loading };
 };
+
+export { useFetch };

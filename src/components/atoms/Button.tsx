@@ -22,10 +22,12 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
    onClick: () => void;
 };
 
-export const Button = ({ children, onClick }: ButtonProps) => {
+const Button = ({ children, onClick }: ButtonProps) => {
    return (
       <ButtonStyled type="submit" onClick={onClick}>
          {children}
       </ButtonStyled>
    );
 };
+
+export { Button };

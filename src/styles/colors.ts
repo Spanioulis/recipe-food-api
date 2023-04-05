@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
    primary: 'rgba(218,7,30,1)',
    primaryDark: 'rgba(153,0,0,1)',
    primaryLight: 'rgba(255,150,126,1)',
@@ -16,3 +16,5 @@ export const colors = {
    },
    white: 'rgba(255,255,255,1)'
 };
+
+export { colors };

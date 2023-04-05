@@ -34,6 +34,7 @@ const CardImageStyled = styled.div<CardProps>`
    background-size: cover;
    background-position: center;
    border-radius: ${dimensions.borderRadius.base};
+   /* TODO -> Cambiar height según media query */
    height: 70%;
    width: 100%;
 `;
@@ -45,7 +46,7 @@ const CardContentStyled = styled(FlexBox)`
 
 const Card = ({ imageUrl, servings, title, time, id }: CardProps) => {
    return (
-      <CardWrapperStyled href="#" key={id}>
+      <CardWrapperStyled href="#">
          <CardImageStyled imageUrl={imageUrl} />
          <CardContentStyled justify="space-between">
             <Title as="h2" weight={500}>

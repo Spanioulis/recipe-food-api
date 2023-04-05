@@ -1,4 +1,4 @@
-export const dimensions = {
+const dimensions = {
    spacing: {
       xs: '0.75rem',
       base: '1rem',
@@ -17,3 +17,5 @@ export const dimensions = {
       h3: '1rem'
    }
 };
+
+export { dimensions };

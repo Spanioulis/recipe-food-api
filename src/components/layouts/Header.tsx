@@ -9,7 +9,7 @@ const HeaderStyled = styled(FlexBox)`
    padding-bottom: ${dimensions.spacing.base};
 `;
 
-export const Header = () => {
+const Header = () => {
    return (
       <HeaderStyled data-testid="header">
          <Title as="h1" color={colors.white} weight={700}>
@@ -18,3 +18,5 @@ export const Header = () => {
       </HeaderStyled>
    );
 };
+
+export { Header };

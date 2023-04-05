@@ -13,6 +13,7 @@ type RecipeResult = {
    results: {
       id?: number;
       image?: string;
+      likes?: number;
       readyInMinutes?: number;
       servings?: number;
       sourceUrl?: string;
@@ -20,22 +21,27 @@ type RecipeResult = {
    }[];
 };
 
-const ingredient = 'meat';
+const ingredient = 'salmon';
+// TODO -> Crear una constante 'urls'
 const URL = `https://api.spoonacular.com/recipes/search?query=${ingredient}&number=5&apiKey=${
    import.meta.env.VITE_API_KEY
 }`;
+const URL_INGREDIENTS = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${
+   import.meta.env.VITE_API_KEY
+}&ingredients=apple&number=2`;
 
-export const LayoutCard = () => {
-   const { data } = useFetch(URL);
+const LayoutCard = () => {
+   const { data } = useFetch<RecipeResult>(URL);
 
    const [recipes, setRecipes] = useState<RecipeResult['results']>([]);
-   console.log('recipes:', recipes);
 
    useEffect(() => {
       if (data?.results) {
          setRecipes(data.results);
       }
    }, [data]);
+
+   // TODO -> Crear un useEffect para la URL que se pase, ya que según cómo se imprimirá un tipo de tarjeta u otra (ver qué necesidades hay)
 
    return (
       <LayoutCardStyled>
@@ -44,6 +50,7 @@ export const LayoutCard = () => {
          <FlexBox direction="row">
             {recipes?.map((d) => (
                <Card
+                  key={d.id}
                   id={d.id}
                   imageUrl={`https://spoonacular.com/recipeImages/${d.image}`}
                   title={d.title}
@@ -55,3 +62,5 @@ export const LayoutCard = () => {
       </LayoutCardStyled>
    );
 };
+
+export { LayoutCard };
