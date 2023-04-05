@@ -10,7 +10,7 @@ type TitleProps = HTMLAttributes<HTMLHeadingElement> & {
 export const Title = styled(Text).attrs<TitleProps>((props) => ({
    as: props?.as || 'h1'
 }))<TitleProps>`
-   color: ${colors.primary};
+   color: ${({ color }) => color || colors.primary};
    ${({ as }) => as === 'h1' && `font-size: ${dimensions.font.h1}`};
    ${({ as }) => as === 'h2' && `font-size: ${dimensions.font.h2}`};
    ${({ as }) => as === 'h3' && `font-size: ${dimensions.font.h3}`};

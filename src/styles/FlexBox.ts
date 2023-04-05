@@ -13,4 +13,5 @@ export const FlexBox = styled.div<FlexBox>`
    justify-content: ${({ justify }) => justify || 'center'};
    align-items: ${({ align }) => align || 'center'};
    gap: ${({ gap }) => gap || '0rem'};
+   width: 100%;
 `;
