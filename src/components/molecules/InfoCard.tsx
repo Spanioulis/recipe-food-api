@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { FlexBox, colors, dimensions } from '../../styles';
 import { Icon, Text, Title } from '../atoms';
+import { Link } from 'react-router-dom';
+import { Header } from '../layouts';
 
 type InfoCardProps = {
    aggregateLikes?: number;
@@ -79,6 +81,26 @@ const FlexBoxStyled = styled(FlexBox)`
    margin-bottom: ${dimensions.spacing.base};
 `;
 
+const HeaderStyled = styled(FlexBox)`
+   margin-bottom: ${dimensions.spacing.xs};
+`;
+
+const LinkStyled = styled(Link)`
+   text-decoration: none;
+   color: ${colors.primaryDark};
+`;
+
+const BackHomeStyled = styled(FlexBox)`
+   cursor: pointer;
+   padding: ${dimensions.spacing.xxs};
+
+   &:hover {
+      border-radius: ${dimensions.borderRadius.base};
+      background-color: ${colors.gray.gray2};
+      transition: all 0.2s ease-in-out;
+   }
+`;
+
 const InfoCard = ({
    aggregateLikes,
    dishTypes,
@@ -94,9 +116,18 @@ const InfoCard = ({
       <CardWrapper direction="row" align="start">
          <CardImage src={image} alt={title} />
          <div style={{ flex: 1 }}>
-            <CardTitle as="h2" color={colors.gray.gray3} weight={600}>
-               {title}
-            </CardTitle>
+            <HeaderStyled direction="row" justify="space-around">
+               <FlexBox>
+                  <Title as="h2" color={colors.gray.gray3} weight={600}>
+                     {title}
+                  </Title>
+               </FlexBox>
+               <BackHomeStyled style={{ flex: 1 }} direction="row" gap="0.2rem">
+                  <LinkStyled to="/">Home</LinkStyled>
+                  <Icon name="restaurant" opsz={48} wght={700} color={colors.primaryLight} />
+               </BackHomeStyled>
+            </HeaderStyled>
+
             <FlexBoxStyled direction="row" justify="space-evenly">
                {dishTypes?.map((dt) => (
                   <Text>{dt}</Text>
@@ -140,7 +171,7 @@ const InfoCard = ({
                   )}
                   {vegan && (
                      <FlexBox direction="row" gap={dimensions.spacing.xxs}>
-                        <Icon name="verified" color={colors.secondary} />
+                        <Icon name="grass" color={colors.secondary} />
                         <Title as="h3" color={colors.secondary}>
                            vegan
                         </Title>
@@ -149,7 +180,7 @@ const InfoCard = ({
 
                   {glutenFree && (
                      <FlexBox direction="row" gap={dimensions.spacing.xxs}>
-                        <Icon name="block" color={colors.gray.gray3} opsz={24} />
+                        <Icon name="verified" color={colors.gray.gray3} opsz={24} />
                         <Title as="h3" color={colors.gray.gray3}>
                            Gluten free
                         </Title>
