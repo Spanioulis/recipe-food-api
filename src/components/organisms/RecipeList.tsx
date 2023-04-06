@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { useFetch } from '../../utils';
 import { FlexBox, dimensions } from '../../styles';
-import { Title } from '../atoms';
 import { useEffect, useState } from 'react';
-import { Card } from './Card';
+import { RecipeCard } from '../molecules';
 
 const LayoutCardStyled = styled(FlexBox)`
-   margin-top: ${dimensions.spacing.base};
+   margin-top: ${dimensions.spacing.lg};
 `;
 
 type RecipeResult = {
@@ -21,7 +20,7 @@ type RecipeResult = {
    }[];
 };
 
-const ingredient = 'salmon';
+const ingredient = 'pork';
 // TODO -> Crear una constante 'urls'
 const URL = `https://api.spoonacular.com/recipes/search?query=${ingredient}&number=5&apiKey=${
    import.meta.env.VITE_API_KEY
@@ -30,7 +29,7 @@ const URL_INGREDIENTS = `https://api.spoonacular.com/recipes/findByIngredients?a
    import.meta.env.VITE_API_KEY
 }&ingredients=apple&number=2`;
 
-const LayoutCard = () => {
+const RecipeList = () => {
    const { data } = useFetch<RecipeResult>(URL);
 
    const [recipes, setRecipes] = useState<RecipeResult['results']>([]);
@@ -45,11 +44,9 @@ const LayoutCard = () => {
 
    return (
       <LayoutCardStyled>
-         {' '}
-         <Title as="h1">Recetas</Title>
          <FlexBox direction="row">
             {recipes?.map((d) => (
-               <Card
+               <RecipeCard
                   key={d.id}
                   id={d.id}
                   imageUrl={`https://spoonacular.com/recipeImages/${d.image}`}
@@ -63,4 +60,4 @@ const LayoutCard = () => {
    );
 };
 
-export { LayoutCard };
+export { RecipeList };

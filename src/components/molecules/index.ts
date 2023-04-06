@@ -1,2 +1,1 @@
-export { Card } from './Card';
-export { LayoutCard } from './LayoutCard';
+export { RecipeCard } from './RecipeCard';

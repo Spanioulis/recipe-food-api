@@ -15,9 +15,9 @@ const CardWrapperStyled = styled.a`
    flex-direction: column;
    justify-content: space-between;
    border-radius: ${dimensions.borderRadius.base};
-   border: 1px solid ${colors.gray.gray1};
+   border: -5px solid ${colors.gray.gray1};
    color: ${colors.primary};
-   height: 450px;
+   height: 400px;
    padding: ${dimensions.spacing.base};
    text-decoration: none;
    transition: all 0.2s ease-in-out;
@@ -31,7 +31,7 @@ const CardWrapperStyled = styled.a`
 
 const CardImageStyled = styled.div<CardProps>`
    background-image: url(${({ imageUrl }) => imageUrl});
-   background-size: cover;
+   background-size: auto;
    background-position: center;
    border-radius: ${dimensions.borderRadius.base};
    /* TODO -> Cambiar height según media query */
@@ -40,19 +40,29 @@ const CardImageStyled = styled.div<CardProps>`
 `;
 
 const CardContentStyled = styled(FlexBox)`
-   height: 30%;
+   height: 28%;
    width: 100%;
 `;
 
-const Card = ({ imageUrl, servings, title, time, id }: CardProps) => {
+const TitleStyled = styled(Title)`
+   margin-left: 0.2rem;
+   max-height: calc(1.5em * 2);
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   text-overflow: ellipsis;
+`;
+
+const RecipeCard = ({ imageUrl, servings, title, time, id }: CardProps) => {
    return (
       <CardWrapperStyled href="#">
          <CardImageStyled imageUrl={imageUrl} />
-         <CardContentStyled justify="space-between">
-            <Title as="h2" weight={500}>
+         <CardContentStyled justify="space-between" align="start">
+            <TitleStyled as="h2" weight={500}>
                {title}
-            </Title>
-            <FlexBox direction="row" justify="space-between">
+            </TitleStyled>
+            <FlexBox direction="row" justify="flex-start" gap={dimensions.spacing.base}>
                <Text>{time} mins</Text>
                <Text>Servings: {servings}</Text>
             </FlexBox>
@@ -61,4 +71,4 @@ const Card = ({ imageUrl, servings, title, time, id }: CardProps) => {
    );
 };
 
-export { Card };
+export { RecipeCard };

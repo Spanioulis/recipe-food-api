@@ -1,5 +1,5 @@
 import { Body } from './components/layouts';
-import { LayoutCard } from './components/molecules';
+import { RecipeList } from './components/organisms';
 import { GlobalStyle } from './styles';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
       <>
          <GlobalStyle />
          <Body>
-            <LayoutCard />
+            <RecipeList />
          </Body>
       </>
    );
