@@ -45,7 +45,7 @@ type InfoCardProps = {
 const CardWrapper = styled(FlexBox)`
    padding: 24px;
    border-radius: 8px;
-   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+   box-shadow: ${colors.boxShadow.card};
    max-width: 90%;
    margin: 24px;
    color: ${colors.gray.gray3};

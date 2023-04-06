@@ -14,7 +14,11 @@ const colors = {
       gray2: 'rgba(189,189,189,1)',
       gray3: 'rgba(51,51,51,1)'
    },
-   white: 'rgba(255,255,255,1)'
+   white: 'rgba(255,255,255,1)',
+   boxShadow: {
+      card: '0 4px 8px 2px rgba(51,51,51,0.2)',
+      hover: 'inset 0px 5px 15px rgba(33,160,78,0.4)'
+   }
 };
 
 export { colors };

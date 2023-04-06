@@ -18,7 +18,7 @@ const CardWrapperStyled = styled.a`
    justify-content: space-evenly;
    border-radius: ${dimensions.borderRadius.base};
    border: -5px solid ${colors.gray.gray1};
-   box-shadow: 0 4px 8px 2px rgba(51, 51, 51, 0.2);
+   box-shadow: ${colors.boxShadow.card};
    color: ${colors.primary};
    cursor: pointer;
    height: 450px;
@@ -29,7 +29,7 @@ const CardWrapperStyled = styled.a`
 
    &:hover {
       transform: translateY(-5px);
-      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: ${colors.boxShadow.hover};
    }
 `;
 
