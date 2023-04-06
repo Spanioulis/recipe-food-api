@@ -26,9 +26,7 @@ const URL_RANDOM = `https://api.spoonacular.com/recipes/random?number=5&apiKey=$
 const URL = `https://api.spoonacular.com/recipes/search?query=${ingredient}&number=5&apiKey=${
    import.meta.env.VITE_API_KEY
 }`;
-const URL_INFO = `https://api.spoonacular.com/recipes/716429/information?includeNutrition=false&apiKey=${
-   import.meta.env.VITE_API_KEY
-}`;
+
 const URL_INGREDIENTS = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${
    import.meta.env.VITE_API_KEY
 }&ingredients=apple&number=2`;
@@ -49,7 +47,7 @@ const RecipeList = () => {
 
    return (
       <LayoutCardStyled>
-         <FlexBox direction="row">
+         <FlexBox direction="row" gap={dimensions.spacing.xs}>
             {recipes?.map((d) => (
                <RecipeCard
                   key={d.id}

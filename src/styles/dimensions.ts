@@ -11,7 +11,7 @@ const dimensions = {
       base: '0.5rem'
    },
    font: {
-      xss: '0.75rem',
+      xxs: '0.75rem',
       xs: '0.875rem',
       base: '1rem',
       h1: '2rem',

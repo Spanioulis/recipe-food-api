@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FlexBox, colors, dimensions } from '../../styles';
 import { Icon, Text, Title } from '../atoms';
@@ -14,15 +15,17 @@ type CardProps = {
 const CardWrapperStyled = styled.a`
    display: flex;
    flex-direction: column;
-   justify-content: space-between;
+   justify-content: space-evenly;
    border-radius: ${dimensions.borderRadius.base};
    border: -5px solid ${colors.gray.gray1};
+   box-shadow: 0 4px 8px 2px rgba(51, 51, 51, 0.2);
    color: ${colors.primary};
+   cursor: pointer;
    height: 450px;
    padding: ${dimensions.spacing.base};
    text-decoration: none;
    transition: all 0.2s ease-in-out;
-   width: 300px;
+   width: 280px;
 
    &:hover {
       transform: translateY(-5px);
@@ -36,7 +39,7 @@ const CardImageStyled = styled.div<CardProps>`
    background-position: center;
    border-radius: ${dimensions.borderRadius.base};
    /* TODO -> Cambiar height según media query */
-   height: 70%;
+   height: 60%;
    width: 100%;
 `;
 
@@ -56,27 +59,29 @@ const TitleStyled = styled(Title)`
 `;
 
 const RecipeCard = ({ imageUrl, servings, sourceUrl, title, time, id }: CardProps) => {
+   const navigate = useNavigate();
+
+   const handleDetail = () => {
+      navigate(`/info/${id}`);
+   };
+
    return (
-      <CardWrapperStyled href="#">
+      <CardWrapperStyled onClick={handleDetail}>
+         <TitleStyled as="h2" weight={500} color={colors.gray.gray3}>
+            {title}
+         </TitleStyled>
          <CardImageStyled imageUrl={imageUrl} />
-         <CardContentStyled justify="space-between" align="start" gap={dimensions.spacing.base}>
-            <TitleStyled as="h2" weight={500}>
-               {title}
-            </TitleStyled>
-            <FlexBox direction="row" justify="flex-start" gap={dimensions.spacing.base}>
-               <FlexBox direction="row" justify="flex-start">
-                  <Icon name="timer" />
-                  <Text size={dimensions.font.xs}>{time} mins</Text>
-               </FlexBox>
-               <FlexBox>
-                  <Text size={dimensions.font.xss}>Servings: {servings}</Text>
-               </FlexBox>
+         {/* <CardContentStyled justify="space-between" align="start" gap={dimensions.spacing.base}> */}
+         <FlexBox direction="row" justify="flex-start" gap={dimensions.spacing.base}>
+            <FlexBox direction="row" justify="flex-start">
+               <Icon name="timer" />
+               <Text size={dimensions.font.xs}>{time} mins</Text>
             </FlexBox>
-            {/* TODO -> add link */}
-            {/* <a href={sourceUrl} target="_blank">
-               Link
-            </a> */}
-         </CardContentStyled>
+            <FlexBox>
+               <Text size={dimensions.font.xxs}>Servings: {servings}</Text>
+            </FlexBox>
+         </FlexBox>
+         {/* </CardContentStyled> */}
       </CardWrapperStyled>
    );
 };
