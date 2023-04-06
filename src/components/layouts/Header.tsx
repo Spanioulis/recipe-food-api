@@ -5,8 +5,8 @@ import { Title } from '../atoms';
 
 const HeaderStyled = styled(FlexBox)`
    background-color: ${colors.primary};
-   padding-top: ${dimensions.spacing.base};
-   padding-bottom: ${dimensions.spacing.base};
+   padding-top: ${dimensions.spacing.lg};
+   padding-bottom: ${dimensions.spacing.lg};
 `;
 
 const Header = () => {

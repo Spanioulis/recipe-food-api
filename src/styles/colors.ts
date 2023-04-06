@@ -17,7 +17,7 @@ const colors = {
    white: 'rgba(255,255,255,1)',
    boxShadow: {
       card: '0 4px 8px 2px rgba(51,51,51,0.2)',
-      hover: 'inset 0px 5px 15px rgba(33,160,78,0.4)'
+      hover: '0px 5px 15px rgba(51,51,51,0.7)'
    }
 };
 

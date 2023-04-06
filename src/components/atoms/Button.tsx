@@ -8,7 +8,7 @@ const ButtonStyled = styled.button<ButtonProps>`
    justify-content: center;
    background-color: ${colors.primary};
    border-radius: ${dimensions.borderRadius.base};
-   border: 2px solid ${colors.primaryDark};
+   border: none;
    color: ${colors.white};
    cursor: pointer;
    font-weight: 700;

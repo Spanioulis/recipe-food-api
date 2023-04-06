@@ -3,10 +3,8 @@ import { colors, dimensions, FlexBox } from '../../styles';
 import { Button, Input } from '../atoms';
 
 const SubHeaderStyled = styled(FlexBox)`
-   background-color: ${colors.secondaryLight};
-   border-bottom: 1px solid ${colors.secondaryDark};
-   border-top: 1px solid ${colors.secondaryDark};
-   padding: ${dimensions.spacing.base};
+   background-color: ${colors.gray.gray2};
+   padding: ${dimensions.spacing.xxs};
 `;
 
 function SubHeader() {
