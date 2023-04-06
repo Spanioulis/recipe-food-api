@@ -5,9 +5,10 @@ import { Icon, Text, Title } from '../atoms';
 type CardProps = {
    id?: number;
    imageUrl?: string;
-   servings?: number;
    time?: number;
    title?: string;
+   servings?: number;
+   sourceUrl?: string;
 };
 
 const CardWrapperStyled = styled.a`
@@ -17,7 +18,7 @@ const CardWrapperStyled = styled.a`
    border-radius: ${dimensions.borderRadius.base};
    border: -5px solid ${colors.gray.gray1};
    color: ${colors.primary};
-   height: 400px;
+   height: 450px;
    padding: ${dimensions.spacing.base};
    text-decoration: none;
    transition: all 0.2s ease-in-out;
@@ -54,7 +55,7 @@ const TitleStyled = styled(Title)`
    text-overflow: ellipsis;
 `;
 
-const RecipeCard = ({ imageUrl, servings, title, time, id }: CardProps) => {
+const RecipeCard = ({ imageUrl, servings, sourceUrl, title, time, id }: CardProps) => {
    return (
       <CardWrapperStyled href="#">
          <CardImageStyled imageUrl={imageUrl} />
@@ -71,6 +72,10 @@ const RecipeCard = ({ imageUrl, servings, title, time, id }: CardProps) => {
                   <Text size={dimensions.font.xss}>Servings: {servings}</Text>
                </FlexBox>
             </FlexBox>
+            {/* TODO -> add link */}
+            {/* <a href={sourceUrl} target="_blank">
+               Link
+            </a> */}
          </CardContentStyled>
       </CardWrapperStyled>
    );
