@@ -73,6 +73,12 @@ const ListItem = styled.li`
    text-align: left;
 `;
 
+const FlexBoxStyled = styled(FlexBox)`
+   border-bottom: 1px solid ${colors.gray.gray2};
+   border-top: 1px solid ${colors.gray.gray2};
+   margin-bottom: ${dimensions.spacing.base};
+`;
+
 const InfoCard = ({
    aggregateLikes,
    dishTypes,
@@ -91,11 +97,11 @@ const InfoCard = ({
             <CardTitle as="h2" color={colors.gray.gray3} weight={600}>
                {title}
             </CardTitle>
-            <FlexBox direction="row" justify="space-evenly">
+            <FlexBoxStyled direction="row" justify="space-evenly">
                {dishTypes?.map((dt) => (
                   <Text>{dt}</Text>
                ))}
-            </FlexBox>
+            </FlexBoxStyled>
             <FlexBox direction="row">
                <FlexBox align="start">
                   {extendedIngredients && (
@@ -121,7 +127,11 @@ const InfoCard = ({
                         </a>
                      </Title>
                   )}
-                  {aggregateLikes && <Title as="h3">{aggregateLikes} likes</Title>}
+                  {aggregateLikes && (
+                     <Title as="h3" weight={600} color={colors.gray.gray3}>
+                        {aggregateLikes} like/s
+                     </Title>
+                  )}
                   {healthScore && (
                      <FlexBox direction="row" gap="1rem">
                         <Title as="h3">Health score:</Title>

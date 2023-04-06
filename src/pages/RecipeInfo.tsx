@@ -77,6 +77,7 @@ const RecipeInfo = () => {
       import.meta.env.VITE_API_KEY
    }`;
    const { data } = useFetch<RecipeResult>(URL_INFO);
+   console.log('data:', data);
    const [infoRecipeData, setInfoRecipeData] = useState<RecipeResult | null>(null);
 
    useEffect(() => {
@@ -93,6 +94,7 @@ const RecipeInfo = () => {
          glutenFree={infoRecipeData?.glutenFree}
          healthScore={infoRecipeData?.healthScore}
          image={infoRecipeData?.image}
+         key={infoRecipeData?.id}
          sourceUrl={infoRecipeData?.sourceUrl}
          summary={infoRecipeData?.summary}
          title={infoRecipeData?.title}

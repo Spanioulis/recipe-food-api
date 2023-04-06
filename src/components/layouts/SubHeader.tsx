@@ -10,7 +10,7 @@ const SubHeaderStyled = styled(FlexBox)`
 function SubHeader() {
    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
    //    e.preventDefault();
-   //    // console.log(e.target.value);
+   // console.log(e.target.value);
    // };
 
    return (
