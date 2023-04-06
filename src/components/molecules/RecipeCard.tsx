@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FlexBox, colors, dimensions } from '../../styles';
-import { Text, Title } from '../atoms';
+import { Icon, Text, Title } from '../atoms';
 
 type CardProps = {
    id?: number;
@@ -58,13 +58,18 @@ const RecipeCard = ({ imageUrl, servings, title, time, id }: CardProps) => {
    return (
       <CardWrapperStyled href="#">
          <CardImageStyled imageUrl={imageUrl} />
-         <CardContentStyled justify="space-between" align="start">
+         <CardContentStyled justify="space-between" align="start" gap={dimensions.spacing.base}>
             <TitleStyled as="h2" weight={500}>
                {title}
             </TitleStyled>
             <FlexBox direction="row" justify="flex-start" gap={dimensions.spacing.base}>
-               <Text>{time} mins</Text>
-               <Text>Servings: {servings}</Text>
+               <FlexBox direction="row" justify="flex-start">
+                  <Icon name="timer" />
+                  <Text size={dimensions.font.xs}>{time} mins</Text>
+               </FlexBox>
+               <FlexBox>
+                  <Text size={dimensions.font.xss}>Servings: {servings}</Text>
+               </FlexBox>
             </FlexBox>
          </CardContentStyled>
       </CardWrapperStyled>
