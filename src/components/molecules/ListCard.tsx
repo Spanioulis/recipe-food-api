@@ -9,13 +9,12 @@ type CardProps = {
    time?: number;
    title?: string;
    servings?: number;
-   sourceUrl?: string;
 };
 
 const CardWrapperStyled = styled.a`
    display: flex;
    flex-direction: column;
-   justify-content: space-evenly;
+   justify-content: space-between;
    border-radius: ${dimensions.borderRadius.base};
    border: -5px solid ${colors.gray.gray1};
    box-shadow: ${colors.boxShadow.card};
@@ -43,13 +42,9 @@ const CardImageStyled = styled.div<CardProps>`
    width: 100%;
 `;
 
-const CardContentStyled = styled(FlexBox)`
-   height: 28%;
-   width: 100%;
-`;
-
 const TitleStyled = styled(Title)`
    margin-left: 0.2rem;
+   min-height: 18%;
    max-height: calc(1.5em * 2);
    overflow: hidden;
    display: -webkit-box;
@@ -58,7 +53,7 @@ const TitleStyled = styled(Title)`
    text-overflow: ellipsis;
 `;
 
-const RecipeCard = ({ imageUrl, servings, sourceUrl, title, time, id }: CardProps) => {
+const ListCard = ({ imageUrl, servings, title, time, id }: CardProps) => {
    const navigate = useNavigate();
 
    const handleDetail = () => {
@@ -71,7 +66,6 @@ const RecipeCard = ({ imageUrl, servings, sourceUrl, title, time, id }: CardProp
             {title}
          </TitleStyled>
          <CardImageStyled imageUrl={imageUrl} />
-         {/* <CardContentStyled justify="space-between" align="start" gap={dimensions.spacing.base}> */}
          <FlexBox direction="row" justify="flex-start" gap={dimensions.spacing.base}>
             <FlexBox direction="row" justify="flex-start">
                <Icon name="timer" />
@@ -81,9 +75,8 @@ const RecipeCard = ({ imageUrl, servings, sourceUrl, title, time, id }: CardProp
                <Text size={dimensions.font.xxs}>Servings: {servings}</Text>
             </FlexBox>
          </FlexBox>
-         {/* </CardContentStyled> */}
       </CardWrapperStyled>
    );
 };
 
-export { RecipeCard };
+export { ListCard };
