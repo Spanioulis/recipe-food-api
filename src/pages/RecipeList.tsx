@@ -60,7 +60,7 @@ const RecipeList = () => {
    return (
       <LayoutCardStyled>
          {recipes && recipes.length > 0 && (
-            <FlexBox direction="row" gap={dimensions.spacing.xs}>
+            <FlexBox direction="row" wrap="wrap" gap={dimensions.spacing.xs}>
                {recipes?.map((d) => (
                   <ListCard
                      key={d.id}

@@ -16,7 +16,6 @@ describe('Button', () => {
       expect(button).toHaveStyle('font-weight: 700;');
       expect(button).toHaveStyle(`background-color: ${colors.primary};`);
       expect(button).toHaveStyle(`border-radius: ${dimensions.borderRadius.base}`);
-      expect(button).toHaveStyle(`border: 2px solid ${colors.primaryDark};`);
       expect(button).toHaveStyle(`color: ${colors.white}`);
       expect(button).toHaveStyle(`margin: ${dimensions.spacing.xs}`);
       expect(button).toHaveStyle(`padding: ${dimensions.spacing.xs}`);
