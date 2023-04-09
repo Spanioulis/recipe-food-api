@@ -19,7 +19,7 @@ const ButtonStyled = styled.button<ButtonProps>`
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
    children: React.ReactNode;
-   onClick: () => void;
+   onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const Button = ({ children, onClick }: ButtonProps) => {

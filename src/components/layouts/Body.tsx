@@ -1,4 +1,4 @@
-import { Header, SubHeader } from '.';
+import { Header } from '.';
 import { FlexBox } from '../../styles';
 
 type BodyProps = {
@@ -9,7 +9,6 @@ const Body = ({ children }: BodyProps) => {
    return (
       <FlexBox>
          <Header />
-         <SubHeader />
          {children}
       </FlexBox>
    );

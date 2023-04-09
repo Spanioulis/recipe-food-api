@@ -134,23 +134,21 @@ const InfoCard = ({
                ))}
             </FlexBoxStyled>
             <FlexBox direction="row">
-               <FlexBox align="start">
+               <FlexBox align="start" style={{ flex: 2 }}>
                   {extendedIngredients && (
                      <>
                         <CardTitle as="h3">Ingredients</CardTitle>
                         <ListWrapper>
                            {extendedIngredients.map((ingredient) => (
-                              <ListItem key={ingredient.id}>
-                                 <Text size={dimensions.font.xs}>
-                                    {ingredient.name} ({ingredient.amount} {ingredient.unit})
-                                 </Text>
+                              <ListItem key={ingredient.original}>
+                                 <Text size={dimensions.font.xs}>{ingredient.original}</Text>
                               </ListItem>
                            ))}
                         </ListWrapper>
                      </>
                   )}
                </FlexBox>
-               <FlexBox gap={dimensions.spacing.xxs}>
+               <FlexBox gap={dimensions.spacing.xxs} style={{ flex: 1 }}>
                   {sourceUrl && (
                      <Title as="h3">
                         <a href={sourceUrl} target="_blank">
