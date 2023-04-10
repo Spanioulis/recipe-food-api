@@ -45,12 +45,12 @@ type InfoCardProps = {
 };
 
 const CardWrapper = styled(FlexBox)`
-   padding: 24px;
-   border-radius: 8px;
+   border-radius: ${dimensions.borderRadius.base};
    box-shadow: ${colors.boxShadow.card};
-   max-width: 90%;
-   margin: 24px;
    color: ${colors.gray.gray3};
+   margin: 4rem;
+   max-width: 90%;
+   padding: ${dimensions.spacing.lg};
 `;
 
 const CardImage = styled.img`

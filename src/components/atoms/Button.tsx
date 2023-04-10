@@ -6,7 +6,7 @@ const ButtonStyled = styled.button<ButtonProps>`
    display: flex;
    align-items: center;
    justify-content: center;
-   background-color: ${colors.primary};
+   background-color: ${({ backgroundColor }) => backgroundColor || colors.primary};
    border-radius: ${dimensions.borderRadius.base};
    border: none;
    color: ${colors.white};
@@ -18,13 +18,14 @@ const ButtonStyled = styled.button<ButtonProps>`
 `;
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+   backgroundColor?: string;
    children: React.ReactNode;
    onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const Button = ({ children, onClick }: ButtonProps) => {
+const Button = ({ backgroundColor, children, onClick }: ButtonProps) => {
    return (
-      <ButtonStyled type="submit" onClick={onClick}>
+      <ButtonStyled type="submit" backgroundColor={backgroundColor} onClick={onClick}>
          {children}
       </ButtonStyled>
    );

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { useFetch } from '../utils';
-import { FlexBox, dimensions } from '../styles';
+import { FlexBox, colors, dimensions } from '../styles';
 import { useEffect, useState } from 'react';
 import { ListCard, SearchBar } from '../components/molecules';
+import { Button } from '../components/atoms';
 
 const LayoutCardStyled = styled(FlexBox)`
-   margin-top: ${dimensions.spacing.lg};
+   margin: ${dimensions.spacing.xl} 0rem;
 `;
 
 type RecipeResult = {
@@ -29,39 +30,48 @@ type RecipeResult = {
    }[];
 };
 
-// TODO -> Crear constante con 'urls'
-
 const RecipeList = () => {
    const [searchData, setSearchData] = useState('');
-   console.log('searchData:', searchData);
    const urls = {
-      random: `https://api.spoonacular.com/recipes/random?number=5&apiKey=${import.meta.env.VITE_API_KEY}`,
-      search: `https://api.spoonacular.com/recipes/search?query=${searchData}&number=5&apiKey=${
+      random: `https://api.spoonacular.com/recipes/random?number=10&apiKey=${import.meta.env.VITE_API_KEY}`,
+      search: `https://api.spoonacular.com/recipes/search?query=${searchData}&number=10&apiKey=${
          import.meta.env.VITE_API_KEY
-      }`,
-      ingredients: `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${
-         import.meta.env.VITE_API_KEY
-      }&ingredients=apple&number=2`
+      }`
    };
+   const [url, setUrl] = useState(urls.search);
 
-   // TODO -> Crear un useEffect para la URL que se pase, ya que según cómo se imprimirá un tipo de tarjeta u otra (ver qué necesidades hay) -> ¿Crear un useState ('urls')?
-
-   const { data } = useFetch<RecipeResult>(urls.random);
-
+   const { data } = useFetch<RecipeResult>(url);
    const [recipes, setRecipes] = useState<RecipeResult['results']>([]);
    const [random, setRandom] = useState<RecipeResult['recipes']>([]);
+   const [key, setKey] = useState(0);
+   console.log('key:', key);
 
    useEffect(() => {
-      if (data?.results) {
+      if (url === urls.search && data?.results) {
          setRecipes(data.results);
-      } else if (data?.recipes) {
+         setRandom([]);
+      } else if (url === urls.random && data?.recipes) {
          setRandom(data.recipes);
+         setRecipes([]);
       }
-   }, [data]);
+   }, [data, url, key]);
+
+   useEffect(() => {
+      setUrl(
+         `https://api.spoonacular.com/recipes/search?query=${searchData}&number=10&apiKey=${
+            import.meta.env.VITE_API_KEY
+         }`
+      );
+   }, [searchData]);
+
+   const handleRandom = () => {
+      setUrl(urls.random);
+      setKey((prev) => prev + 1);
+   };
 
    return (
       <>
-         <SearchBar setSearchData={setSearchData} />
+         <SearchBar setSearchData={setSearchData} handleRandom={handleRandom} />
          <LayoutCardStyled>
             {recipes && recipes.length > 0 && (
                <FlexBox direction="row" wrap="wrap" gap={dimensions.spacing.xs}>
@@ -78,7 +88,7 @@ const RecipeList = () => {
                </FlexBox>
             )}
             {random && random.length > 0 && (
-               <FlexBox direction="row" gap={dimensions.spacing.xs}>
+               <FlexBox direction="row" wrap="wrap" gap={dimensions.spacing.xs}>
                   {random?.map((d) => (
                      <ListCard
                         key={d.id}
