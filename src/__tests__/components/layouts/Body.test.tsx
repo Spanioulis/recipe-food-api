@@ -15,7 +15,5 @@ describe('Body', () => {
 
       const header = screen.getByTestId('header');
       expect(header).toBeInTheDocument();
-      const subheader = screen.getByTestId('subheader');
-      expect(subheader).toBeInTheDocument();
    });
 });

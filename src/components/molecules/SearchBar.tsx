@@ -25,7 +25,7 @@ function SearchBar({ setSearchData }: SubHeaderProps) {
    };
 
    return (
-      <SubHeaderStyled data-testid="subheader">
+      <SubHeaderStyled data-testid="searchBar">
          <FlexBox direction="row">
             <Input placeholder="Search rescipes..." onChange={handleChange} />
             <Button type="submit" onClick={handleClick}>
