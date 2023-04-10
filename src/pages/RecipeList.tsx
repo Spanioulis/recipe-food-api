@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import { useFetch } from '../utils';
-import { FlexBox, colors, dimensions } from '../styles';
+import { FlexBox, dimensions } from '../styles';
 import { useEffect, useState } from 'react';
 import { ListCard, SearchBar } from '../components/molecules';
-import { Button } from '../components/atoms';
 
 const LayoutCardStyled = styled(FlexBox)`
    margin: ${dimensions.spacing.xl} 0rem;

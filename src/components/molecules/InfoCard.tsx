@@ -163,7 +163,19 @@ const InfoCard = ({
                   )}
                   {healthScore && (
                      <FlexBox direction="row" gap="1rem">
-                        <Title as="h3">Health score:</Title>
+                        <Title
+                           as="h3"
+                           color={
+                              healthScore < 50
+                                 ? colors.primaryDark
+                                 : healthScore < 90
+                                 ? colors.goldenrod
+                                 : colors.secondary
+                           }
+                           weight={600}
+                        >
+                           Health score:
+                        </Title>
                         <Text>{healthScore}/100</Text>
                      </FlexBox>
                   )}
@@ -171,15 +183,15 @@ const InfoCard = ({
                      <FlexBox direction="row" gap={dimensions.spacing.xxs}>
                         <Icon name="grass" color={colors.secondary} />
                         <Title as="h3" color={colors.secondary}>
-                           vegan
+                           Vegan
                         </Title>
                      </FlexBox>
                   )}
 
                   {glutenFree && (
                      <FlexBox direction="row" gap={dimensions.spacing.xxs}>
-                        <Icon name="verified" color={colors.gray.gray3} opsz={24} />
-                        <Title as="h3" color={colors.gray.gray3}>
+                        <Icon name="verified" color={colors.corn} opsz={24} />
+                        <Title as="h3" color={colors.corn}>
                            Gluten free
                         </Title>
                      </FlexBox>
