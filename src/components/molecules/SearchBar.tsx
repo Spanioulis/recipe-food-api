@@ -8,6 +8,12 @@ const SearchBarStyled = styled(FlexBox)`
    padding: ${dimensions.spacing.xxs};
 `;
 
+const ButtonContainerStyled = styled(FlexBox)`
+   @media (max-width: 768px) {
+      align-items: center;
+   }
+`;
+
 type SearchBarProps = {
    setSearchData: React.Dispatch<React.SetStateAction<string>>;
    handleRandom: () => void;
@@ -27,12 +33,12 @@ function SearchBar({ handleRandom, setSearchData }: SearchBarProps) {
 
    return (
       <SearchBarStyled data-testid="searchBar">
-         <FlexBox direction="row">
-            <FlexBox align="start" style={{ flex: 1 }}>
+         <FlexBox direction="row" wrap="wrap">
+            <ButtonContainerStyled align="start" style={{ flex: 1 }}>
                <Button onClick={handleRandom} backgroundColor={colors.secondary}>
                   Random recipe
                </Button>
-            </FlexBox>
+            </ButtonContainerStyled>
             <FlexBox direction="row" style={{ flex: 2 }}>
                <Input placeholder="Search rescipes..." onChange={handleChange} />
                <Button type="submit" onClick={handleClick}>
@@ -44,4 +50,4 @@ function SearchBar({ handleRandom, setSearchData }: SearchBarProps) {
    );
 }
 
-export default styled(SearchBar)``;
+export { SearchBar };

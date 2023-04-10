@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import { colors, dimensions, FlexBox } from '../../styles';
 import { Title } from '../atoms';
-// import { MainMenu } from '../molecules';
 
 const HeaderStyled = styled(FlexBox)`
    background-color: ${colors.primary};
-   padding-top: ${dimensions.spacing.lg};
-   padding-bottom: ${dimensions.spacing.lg};
+   padding: ${dimensions.spacing.lg};
 `;
 
 const Header = () => {
