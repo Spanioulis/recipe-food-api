@@ -58,6 +58,11 @@ const CardImage = styled.img`
    height: 400px;
    object-fit: cover;
    margin-right: 3rem;
+
+   @media (max-width: 1024px) {
+      margin-bottom: ${dimensions.spacing.xl};
+      margin-right: 0rem;
+   }
 `;
 
 const CardTitle = styled(Title)`
@@ -113,7 +118,7 @@ const InfoCard = ({
    vegan
 }: InfoCardProps) => {
    return (
-      <CardWrapper direction="row" align="start">
+      <CardWrapper direction="row" wrap="wrap" align="start">
          <CardImage src={image} alt={title} />
          <div style={{ flex: 1 }}>
             <HeaderStyled direction="row" justify="space-around">
@@ -128,7 +133,7 @@ const InfoCard = ({
                </BackHomeStyled>
             </HeaderStyled>
 
-            <FlexBoxStyled direction="row" justify="space-evenly">
+            <FlexBoxStyled direction="row" wrap="wrap" justify="space-evenly">
                {dishTypes?.map((dt) => (
                   <Text>{dt}</Text>
                ))}
