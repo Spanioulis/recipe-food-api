@@ -20,7 +20,7 @@ const CardWrapperStyled = styled.a`
    box-shadow: ${colors.boxShadow.card};
    color: ${colors.primary};
    cursor: pointer;
-   height: 450px;
+   height: 400px;
    padding: ${dimensions.spacing.base};
    text-decoration: none;
    transition: all 0.2s ease-in-out;

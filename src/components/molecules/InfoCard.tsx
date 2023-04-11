@@ -47,7 +47,7 @@ const CardWrapper = styled(FlexBox)`
    border-radius: ${dimensions.borderRadius.base};
    box-shadow: ${colors.boxShadow.card};
    color: ${colors.gray.gray3};
-   margin: 4rem;
+   margin: 2rem;
    max-width: 90%;
    padding: ${dimensions.spacing.lg};
 `;

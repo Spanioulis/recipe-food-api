@@ -72,7 +72,7 @@ const RecipeList = () => {
          <SearchBar setSearchData={setSearchData} handleRandom={handleRandom} />
          <LayoutCardStyled>
             {recipes && recipes.length > 0 && (
-               <FlexBox direction="row" wrap="wrap" gap={dimensions.spacing.xs}>
+               <FlexBox direction="row" wrap="wrap" gap={dimensions.spacing.xl}>
                   {recipes?.map((d) => (
                      <ListCard
                         key={d.id}
