@@ -11,7 +11,7 @@ const Header = () => {
    return (
       <HeaderStyled data-testid="header">
          <Title as="h1" color={colors.white} weight={700}>
-            Spoonacular - Recipe&Food 🥗🍤🍍🥑🍄
+            Recipe & Food 🥗🍤🍍🥑🍄
          </Title>
       </HeaderStyled>
    );
