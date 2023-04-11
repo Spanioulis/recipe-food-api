@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { FlexBox, colors, dimensions } from '../../styles';
 import { Icon, Text, Title } from '../atoms';
 import { Link } from 'react-router-dom';
-import { Header } from '../layouts';
 
 type InfoCardProps = {
    aggregateLikes?: number;
@@ -61,6 +60,11 @@ const CardImage = styled.img`
 
    @media (max-width: 1024px) {
       margin-bottom: ${dimensions.spacing.xl};
+      margin-right: ${dimensions.spacing.base};
+   }
+   @media (max-width: 600px) {
+      width: 275px;
+      height: 275px;
       margin-right: 0rem;
    }
 `;
@@ -71,12 +75,11 @@ const CardTitle = styled(Title)`
 
 const ListWrapper = styled.ul`
    list-style: outside;
-   margin-left: 2rem;
+   margin-left: ${dimensions.spacing.xl};
 `;
 
 const ListItem = styled.li`
-   line-height: 1.5;
-   margin-bottom: 8p;
+   line-height: 2;
    text-align: left;
 `;
 
@@ -135,7 +138,7 @@ const InfoCard = ({
 
             <FlexBoxStyled direction="row" wrap="wrap" justify="space-evenly">
                {dishTypes?.map((dt) => (
-                  <Text>{dt}</Text>
+                  <Text key={dt}>{dt}</Text>
                ))}
             </FlexBoxStyled>
             <FlexBox direction="row">

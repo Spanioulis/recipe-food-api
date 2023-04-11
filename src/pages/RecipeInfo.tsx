@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../utils';
 import { InfoCard } from '../components/molecules';
-import { useEffect, useState } from 'react';
 
 type RecipeResult = {
    aggregateLikes?: number;

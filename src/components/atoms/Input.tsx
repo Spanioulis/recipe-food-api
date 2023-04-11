@@ -11,7 +11,7 @@ const InputStyled = styled.input<InputProps>`
 
    &:focus {
       outline: 0 none;
-      border: 2px solid ${colors.primary};
+      border: 2px solid ${colors.gray.gray3};
    }
 `;
 

@@ -15,6 +15,11 @@ const ButtonStyled = styled.button<ButtonProps>`
    margin: ${dimensions.spacing.xs};
    padding: ${dimensions.spacing.xs};
    width: 250px;
+
+   &:focus {
+      outline: 2px solid ${colors.gray.gray1};
+      outline-offset: 2px;
+   }
 `;
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {

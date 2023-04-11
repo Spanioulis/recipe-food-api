@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useFetch } from '../utils';
 import { FlexBox, dimensions } from '../styles';
-import { useEffect, useState } from 'react';
 import { ListCard, SearchBar } from '../components/molecules';
 
 const LayoutCardStyled = styled(FlexBox)`
@@ -43,7 +43,6 @@ const RecipeList = () => {
    const [recipes, setRecipes] = useState<RecipeResult['results']>([]);
    const [random, setRandom] = useState<RecipeResult['recipes']>([]);
    const [key, setKey] = useState(0);
-   console.log('key:', key);
 
    useEffect(() => {
       if (url === urls.search && data?.results) {

@@ -37,7 +37,6 @@ const CardImageStyled = styled.div<CardProps>`
    background-size: auto;
    background-position: center;
    border-radius: ${dimensions.borderRadius.base};
-   /* TODO -> Cambiar height según media query */
    height: 60%;
    width: 100%;
 `;
