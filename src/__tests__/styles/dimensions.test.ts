@@ -3,7 +3,7 @@ import { dimensions } from '../../styles';
 describe('dimensions', () => {
    it('should have spacing values that are strings and containing "rem"', () => {
       const { spacing } = dimensions;
-      Object.entries(spacing).forEach(([_, spacingValue]) => {
+      Object.entries(spacing).forEach(([, spacingValue]) => {
          expect(typeof spacingValue === 'string').toBe(true);
          expect(spacingValue.endsWith('rem')).toBe(true);
       });
@@ -11,7 +11,7 @@ describe('dimensions', () => {
 
    it('should have font values base that are strings and containing "rem"', () => {
       const { font } = dimensions;
-      Object.entries(font).forEach(([_, fontValue]) => {
+      Object.entries(font).forEach(([, fontValue]) => {
          expect(fontValue.endsWith('rem')).toBe(true);
          expect(typeof fontValue === 'string').toBe(true);
       });
@@ -19,7 +19,7 @@ describe('dimensions', () => {
 
    it('should have borderRadius values that are strings', () => {
       const { borderRadius } = dimensions;
-      Object.entries(borderRadius).forEach(([_, borderRadiusValue]) => {
+      Object.entries(borderRadius).forEach(([, borderRadiusValue]) => {
          expect(typeof borderRadiusValue === 'string').toBe(true);
       });
    });

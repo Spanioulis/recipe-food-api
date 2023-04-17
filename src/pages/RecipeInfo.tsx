@@ -5,7 +5,6 @@ import { InfoCard } from '../components/molecules';
 
 type RecipeResult = {
    aggregateLikes?: number;
-   analyzedInstructions?: any[];
    cheap?: boolean;
    cookingMinutes?: number;
    creditsText?: string;
@@ -47,8 +46,6 @@ type RecipeResult = {
    instructions?: string;
    license?: string;
    lowFodmap?: boolean;
-   occasions?: any[];
-   originalId?: any;
    preparationMinutes?: number;
    pricePerServing?: number;
    readyInMinutes?: number;
@@ -65,9 +62,7 @@ type RecipeResult = {
    veryPopular?: boolean;
    weightWatcherSmartPoints?: number;
    winePairing?: {
-      pairedWines?: any[];
       pairingText?: string;
-      productMatches?: any[];
    };
 };
 
