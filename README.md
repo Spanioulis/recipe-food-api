@@ -28,4 +28,4 @@ Proyecto realizado con React & Typescript y maquetado con styled-components. Se 
 
 ## Calidad de código
 
-![codefactor](https://user-images.githubusercontent.com/97700906/231271657-474786f0-43e4-42e1-99bf-da9a5e6f69b1.PNG)
+![codefactor-spoonacular](https://user-images.githubusercontent.com/97700906/232511961-d5dd052b-b38a-444b-bd13-b873219f5bab.PNG)
